@@ -1,3 +1,28 @@
-body{
-  display: block;
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 18px;
+  line-height: 27px;
+  display: flex;
+  flex-direction: column;
+  color: $default;
+  @extend %gothampro-400;
+  font-weight: 300;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.container {
+  width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+span{
+  color: $accent;
 }
