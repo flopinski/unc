@@ -1,6 +1,7 @@
 @import "vars";
 @import "fonts";
 @import "reset";
+@import "libs";
 @import "global";
 
 .logo__img {
@@ -57,7 +58,7 @@
       content: "";
       left: -29px;
       top: 0;
-      background-image: url(../images/icons/phone.svg);
+      background-image: url("../images/icons/phone.svg");
     }
   }
 
@@ -205,10 +206,10 @@
     color: #fff;
     border-radius: 4px;
     margin-bottom: 60px;
-    &::after{
+    &::after {
       position: absolute;
-      content: '';
-      background-image: url(../images/icons/arrow-right.svg);
+      content: "";
+      background-image: url("../images/icons/arrow-right.svg");
       width: 19px;
       height: 10px;
       right: 23px;
@@ -237,7 +238,7 @@
         #f0f4f9 9%,
         rgba(240, 244, 249, 0) 60.04%
       ),
-      url(../images/hero-bg.jpg);
+      url("../images/hero-bg.jpg");
   }
   &__stats {
     display: flex;
@@ -271,52 +272,49 @@
   }
 }
 
-.features{
+.features {
   padding: 90px 0;
-  &__inner{
+  position: relative;
+  background-image: url("../images/features-bg.svg");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-position: 10% 112%;
+
+  &__inner {
     display: flex;
     align-items: flex-start;
   }
-  &__left{
+  &__left {
     margin-right: 200px;
   }
-  &__left-title{
-    display: inline-block;
-    text-transform: uppercase;
-    font-size: 20px;
-    line-height: 19px;
-    color: $accent;
-  }
-  &__content{
+  &__content {
     max-width: 860px;
   }
-  &__content-title{
-    font-size: 42px;
-    line-height: 57px;
-    margin-bottom: 30px;
-  }
-  &__text{
+
+  &__text {
     font-size: 18px;
     line-height: 36px;
     margin-bottom: 40px;
   }
-  &__items{
+  &__items {
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 20px;
+    z-index: 5;
   }
-  &__item{
+  &__item {
     width: 420px;
     height: 294px;
     border: 1px solid #d1d6e4;
     padding: 30px;
+    background-color: #fff;
   }
-  &__item-image{
+  &__item-image {
     margin-bottom: 20px;
   }
-  &__item-title{
+  &__item-title {
     margin-bottom: 20px;
     font-size: 20px;
     line-height: 30px;
@@ -324,9 +322,336 @@
   }
 }
 
+.doctors {
+  padding: 90px 0;
+  background: $bg;
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 60px;
+  }
+  &__left {
+    margin-right: 200px;
+  }
+  &__items {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item-box {
+    display: none;
+  }
+  &__item {
+    max-width: 305px;
+    width: 100%;
+    height: 565px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 4px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.5s;
+    &:hover {
+      .doctors__item-name {
+        display: none;
+      }
+      .doctors__item-box {
+        display: block;
+      }
+    }
+  }
+  &__therapist:hover {
+    background-image: linear-gradient(
+        0deg,
+        rgba(117, 214, 180, 0.85),
+        rgba(117, 214, 180, 0.85)
+      ),
+      url("../images/doctors/1.jpg") !important;
+  }
+  &__cardiologist:hover {
+    background-image: linear-gradient(
+        0deg,
+        rgba(117, 214, 180, 0.85),
+        rgba(117, 214, 180, 0.85)
+      ),
+      url("../images/doctors/2.jpg") !important;
+  }
+  &__surgeon:hover {
+    background-image: linear-gradient(
+        0deg,
+        rgba(117, 214, 180, 0.85),
+        rgba(117, 214, 180, 0.85)
+      ),
+      url("../images/doctors/3.jpg") !important;
+  }
+  &__otorhinolaryngologist:hover {
+    background-image: linear-gradient(
+        0deg,
+        rgba(117, 214, 180, 0.85),
+        rgba(117, 214, 180, 0.85)
+      ),
+      url("../images/doctors/4.jpg") !important;
+  }
 
+  &__item-name {
+    padding: 25px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 30px;
+    background-color: $accent;
+    border-radius: 4px;
+  }
+  &__item-experience {
+    position: absolute;
+    top: -15px;
+    left: 50px;
+    font-size: 14px;
+    line-height: 13px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: $accent;
+    color: #fff;
+    padding: 9px 21px 8px 20px;
+  }
+  &__item-box {
+    margin: 25px;
+  }
+  &__item-name--hover {
+    color: #fff;
+    font-size: 22px;
+    line-height: 30px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  &__item-position {
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+  }
+  &__item-link {
+    display: inline-block;
+    color: #fff;
+    padding: 18px 30px 18px 18px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url("../images/icons/arrow-right.svg");
+      width: 19px;
+      height: 10px;
+      right: 6px;
+      top: 26px;
+    }
+  }
+}
 
+.certificates {
+  padding-bottom: 90px;
+  background-color: $bg;
+  &__title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  &__items {
+    position: relative;
+    .slick-arrow {
+      position: absolute;
+      top: -31%;
+      right: 70px;
+      font-size: 0;
+      border: none;
+    }
+    .slick-arrow.slick-prev {
+      background: url("../images/icons/angle-left.svg") 0 0 no-repeat;
+      width: 60px;
+      height: 60px;
+      &:hover {
+        background: url("../images/icons/angle-left-hover.svg") 0 0 no-repeat;
+      }
+    }
+    .slick-arrow.slick-next {
+      background: url("../images/icons/angle-right.svg") 0 0 no-repeat;
+      width: 60px;
+      height: 60px;
+      right: 0;
+      &:hover {
+        background: url("../images/icons/angle-right-hover.svg") 0 0 no-repeat;
+      }
+    }
+  }
+  &__item {
+    max-width: 200px;
+    height: 280px;
+    border-radius: 4px;
+    margin-bottom: 50px;
+  }
+}
 
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  li {
+    line-height: 0;
+    padding: 0 10px;
+  }
+  button {
+    padding: 0;
+    font-size: 0;
+    position: relative;
+    background-color: $accent;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: 1px solid $accent;
+  }
+  .slick-active {
+    button {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
 
+.promo {
+  padding: 90px 115px;
+  background-color: $accent;
+  background-image: url("../images/promo-bg.jpg");
+  background-position: right;
+  background-size: 52% 100%;
+  background-repeat: no-repeat;
+
+  &__info {
+    max-width: 665px;
+  }
+  &__subtitle {
+    font-size: 20px;
+    line-height: 19px;
+    color: $btn;
+    margin-bottom: 60px;
+  }
+  &__title {
+    display: block;
+    max-width: 600px;
+    color: #fff;
+    font-size: 42px;
+    line-height: 57px;
+    margin-bottom: 50px;
+  }
+  &__form {
+    max-width: 387px;
+    width: 100%;
+  }
+  &__input-name,
+  &__input-phone {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #fff;
+    font-size: 18px;
+    line-height: 17px;
+    background-color: transparent;
+    color: #fff;
+    max-width: 472px;
+    width: 100%;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    &::placeholder {
+      color: #fff;
+      font-size: 18px;
+      line-height: 17px;
+    }
+  }
+  &__input-name {
+    margin-bottom: 50px;
+  }
+  &__input-phone {
+    margin-bottom: 32px;
+  }
+  &__checkbox-text {
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    margin-bottom: 50px;
+  }
+  &__input-checkbox {
+    border: none;
+    margin: 0;
+  }
+  &__btn-info {
+    display: flex;
+    max-width: 550px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  &__btn {
+    border: none;
+    position: relative;
+    color: $btn;
+    font-size: 18px;
+    line-height: 17px;
+    padding: 22px 68px 22px 34px;
+    border-radius: 4px;
+    cursor: pointer;
+    &::after{
+      position: absolute;
+      content: '';
+      background-image: url('../images/icons/arrow-right-btn.svg');
+      width: 19px;
+      height: 10px;
+      right: 35px;
+      top: 26px;
+    }
+    span {
+      cursor: default;
+      padding: 8px 16px;
+      color: #fff;
+      background-color: $btn;
+      font-size: 14px;
+      line-height: 13px;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      position: absolute;
+      display: block;
+      right: 0;
+      top: -16px;
+    }
+  }
+  &__price-old {
+    color: #8cd1c3;
+    font-size: 22px;
+    line-height: 21px;
+    text-decoration: line-through;
+    margin-bottom: 13px;
+  }
+  &__price-new {
+    color: #fff;
+    font-size: 26px;
+    line-height: 25px;
+  }
+}
+
+.quote{
+  padding: 100px 0 55px;
+  background-color: $bg;
+  &__inner{
+    display: flex;
+    align-items: start;
+  }
+  &__img{
+    margin-right: 30px;
+  }
+  &__text{
+    margin-bottom: 45px;
+    font-size: 20px;
+    line-height: 36px;
+
+  }
+}
 
 @import "media";

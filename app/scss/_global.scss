@@ -23,6 +23,20 @@ main {
   padding: 0 15px;
 }
 
-span{
+span {
   color: $accent;
+}
+
+.title-left {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 19px;
+  color: $accent;
+}
+
+.title {
+  font-size: 42px;
+  line-height: 57px;
+  margin-bottom: 30px;
 }
