@@ -2,7 +2,6 @@
   "devDependencies": {
     "browsersync": "^0.0.1-security",
     "del": "^6.1.1",
-    "fancybox": "^3.0.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-sass": "^5.1.0",
@@ -12,9 +11,11 @@
     "sass": "^1.52.2"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "browser-sync": "^2.27.10",
     "gulp-concat": "^2.6.1",
     "jquery": "^3.6.0",
+    "rateyo": "^2.3.5",
     "slick-carousel": "^1.8.1"
   }
 }
